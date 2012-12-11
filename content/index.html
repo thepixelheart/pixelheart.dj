@@ -1,3 +1,80 @@
-Pixel heart world.
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <link rel="shortcut icon" href="favicon.ico">
+    <script src="jquery.min.js"></script>
+    <script src="jcanvas.min.js"></script>
+    <style>
+      body {
+        margin: 0px;
+        padding: 0px;
+      }
+      #pixel_canvas_container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+      }
+      #pixel_canvas {
+        position: absolute;
+        top: -320px;
+        left: -480px;
+      }
+    </style>
+    <script>
+      var CELL_COLS = 48;
+      var CELL_ROWS = 32;
 
-Test.
+      $(document).ready(function() {  
+        // resize the window to full screen player
+        $(window).resize(function(){
+          draw();
+        });    
+        // force the resize of the player at page load
+        //$(window).resize();
+        draw();
+      });     
+      function draw() {      
+        var w = $('#pixel_canvas').width();
+        var h = $('#pixel_canvas').height();
+
+        var w_step = w / CELL_COLS;
+        var h_step = h / CELL_ROWS;
+
+        // draw grid
+        for (var x = 0; x <= w; x += w_step) {
+          $("canvas").drawLine({
+            strokeStyle: "#eee",
+            strokeWidth: 1,
+            x1: x, y1: 0,
+            x2: x, y2: h,
+          });
+        }
+        for (var y = 0; y <= h; y += h_step) {
+          $("canvas").drawLine({
+            strokeStyle: "#eee",
+            strokeWidth: 1,
+            x1: 0, y1: y,
+            x2: w, y2: y,              
+          });
+        }      
+      }
+      function getMousePos(canvas, evt) {
+        var rect = canvas.getBoundingClientRect();
+        return {
+          x: evt.clientX - rect.left,
+          y: evt.clientY - rect.top
+        };
+      }
+      // canvas.addEventListener('mousemove', function(evt) {
+      //   var mousePos = getMousePos(canvas, evt);
+      //   var message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y;
+      //   writeMessage(canvas, message);
+      // }, false);
+    </script>    
+  </head>
+  <body>
+    <div id="pixel_canvas_container">
+      <canvas id="pixel_canvas" width="960" height="640"></canvas>
+    </div>
+  </body>
+</html>
