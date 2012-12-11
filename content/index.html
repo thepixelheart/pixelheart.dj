@@ -1,6 +1,8 @@
 <!DOCTYPE HTML>
+
 <html>
   <head>
+    <title>PixelHeart</title>
     <link rel="shortcut icon" href="favicon.ico">
     <script src="jquery.min.js"></script>
     <script src="jcanvas.min.js"></script>
@@ -19,30 +21,64 @@
         top: -320px;
         left: -480px;
       }
+      #offscreen_canvas {
+        display: none;
+      } 
     </style>
     <script>
       var CELL_COLS = 48;
       var CELL_ROWS = 32;
+      var HEART_MAP = false;
+
+      function getPixelColor(x, y) {
+        var offset = y * CELL_COLS * 4 + x * 4;
+        var color = (HEART_MAP[offset + 2] | (HEART_MAP[offset + 1] << 8) | (HEART_MAP[offset] << 16)).toString(16);
+        while (color.length < 6) {
+          color = "0"+color;
+        }
+        return "#" + color;
+      }
+      function getPixelOpacity(x, y) {
+        var offset = y * CELL_COLS * 4 + x * 4;
+        return HEART_MAP[offset + 3] / 256;
+      }      
 
       $(document).ready(function() {  
         // resize the window to full screen player
-        $(window).resize(function(){
-          draw();
-        });    
+        // $(window).resize(function(){
+        //   draw();
+        // });    
         // force the resize of the player at page load
         //$(window).resize();
-        draw();
+
+        // read the pixel map
+        var img = new Image();
+        img.src = 'heart.png';
+
+        img.onload = function() {
+          var context = document.getElementById('offscreen_canvas').getContext('2d');        
+          context.drawImage(img, 0, 0);
+          HEART_MAP = context.getImageData(0, 0, CELL_COLS, CELL_ROWS).data;
+          //console.log(HEART_MAP);
+
+          // draw 
+          var c = $("#pixel_canvas");
+          draw(c);                  
+        }
       });     
-      function draw() {      
-        var w = $('#pixel_canvas').width();
-        var h = $('#pixel_canvas').height();
+
+      function draw(c) {      
+        var w = c.width();
+        var h = c.height();
 
         var w_step = w / CELL_COLS;
         var h_step = h / CELL_ROWS;
 
         // draw grid
         for (var x = 0; x <= w; x += w_step) {
-          $("canvas").drawLine({
+          c.drawLine({
+            layer: true,
+            name: "grid",
             strokeStyle: "#eee",
             strokeWidth: 1,
             x1: x, y1: 0,
@@ -50,30 +86,53 @@
           });
         }
         for (var y = 0; y <= h; y += h_step) {
-          $("canvas").drawLine({
+          c.drawLine({
+            layer: true,
+            name: "grid",
             strokeStyle: "#eee",
             strokeWidth: 1,
             x1: 0, y1: y,
             x2: w, y2: y,              
           });
-        }      
+        }
+
+        for (var x = 0; x < CELL_COLS; x++) {
+          for (var y = 0; y < CELL_ROWS; y++) {
+            drawPixel(c, x, y, w_step, h_step);            
+          }
+        }        
+        
+        
       }
-      function getMousePos(canvas, evt) {
-        var rect = canvas.getBoundingClientRect();
-        return {
-          x: evt.clientX - rect.left,
-          y: evt.clientY - rect.top
-        };
+      function drawPixel(c, x, y, w_step, h_step, color, opacity) {
+        if (!color) color = getPixelColor(x, y);
+        if (!opacity) opacity = getPixelOpacity(x, y);
+        if (!opacity) return;
+
+        if (!w_step) w_step = $('#pixel_canvas').width() / CELL_COLS;
+        if (!h_step) h_step = $('#pixel_canvas').height() / CELL_ROWS;        
+        c.drawRect({
+          layer: true,
+          name: "pixel",
+          opacity: opacity,
+          fillStyle: color,
+          x: w_step * (x + 0.5), y: h_step * (y + 0.5),
+          width: w_step - 2,
+          height: h_step - 2,
+          fromCenter: true,
+          mouseover: function(layer) {
+            layer.scale *= 2;
+          },
+          mouseout: function(layer) {
+            layer.scale *= 0.5;
+          },
+        });
       }
-      // canvas.addEventListener('mousemove', function(evt) {
-      //   var mousePos = getMousePos(canvas, evt);
-      //   var message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y;
-      //   writeMessage(canvas, message);
-      // }, false);
     </script>    
   </head>
   <body>
-    <div id="pixel_canvas_container">
+    <canvas id="offscreen_canvas"></canvas>
+    <div id="pixel_canvas_container">      
       <canvas id="pixel_canvas" width="960" height="640"></canvas>
     </div>
   </body>
