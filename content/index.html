@@ -81,7 +81,7 @@
             layer: true,
             name: "grid",
             strokeStyle: "#333",
-            strokeWidth: 1,
+            strokeWidth: 0.5,
             x1: x, y1: 0,
             x2: x, y2: h,
           });
@@ -91,7 +91,7 @@
             layer: true,
             name: "grid",
             strokeStyle: "#333",
-            strokeWidth: 1,
+            strokeWidth: 0.5,
             x1: 0, y1: y,
             x2: w, y2: y,              
           });
@@ -122,10 +122,10 @@
           height: h_step - 2,
           fromCenter: true,
           mouseover: function(layer) {
-            layer.scale *= 2;
+            //layer.scale *= 2;
           },
           mouseout: function(layer) {
-            layer.scale *= 0.5;
+            //layer.scale *= 0.5;
           },
         });
       }
