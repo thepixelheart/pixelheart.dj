@@ -2,7 +2,7 @@
 
 <html>
 <head>
-  <title>The Pixel Pusher</title>
+  <title>Getting Started</title>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <link rel="stylesheet" media="all" href="public/stylesheets/normalize.css" />
   <link rel="stylesheet" media="all" href="gettingstarted.css" />
@@ -14,25 +14,48 @@
       <div class="header">
         
           
-          <h1>The Pixel Pusher</h1>
+          <h1>Getting Started</h1>
 
           
         
 
         
+          <div class="toc">
+            <h3>Table of Contents</h3>
+            <ol>
+              
+                
+                
+                <li>
+                  <a class="source" href="index.html">
+                    Getting Started
+                  </a>
+                </li>
+              
+                
+                
+                <li>
+                  <a class="source" href="userinterface.html">
+                    User Interface Guide
+                  </a>
+                </li>
+              
+            </ol>
+          </div>
+        
       </div>
 
       
         
-        <p>So you wanna play with the Pixel Pusher?</p>
+        <p>So you wanna play with the Pixel Pusher? Awesome, because we wanna make it easy for you ♥.</p>
 <p>This guide will walk you through setting up the Pixel Pusher software on your Mac so you can start
-writing and creating your own animations.</p>
+writing your own animations.</p>
 <h2>Requirements</h2>
 
         
       
         
-        <p>You&#39;re going to need to be running <em>at least</em> Mac OS X 10.8 Mountain Lion. You can check which
+        <p>You&#39;re going to need to be running Mountain Lion (10.8 or newer). You can check which
 version you&#39;re running by clicking the Apple icon and clicking &quot;About this Mac&quot;.</p>
 <p><img src="gfx/aboutthismac.png" alt="About this Mac" title="About this Mac"></p>
 <h2>Download the Pixel Pusher</h2>
@@ -40,21 +63,80 @@ version you&#39;re running by clicking the Apple icon and clicking &quot;About t
         
       
         
-        <p>You can download the latest version of the PixelPusher here:</p>
+        <p>Download the latest version of the Pixel Pusher software here:</p>
 <p><a href="http://pixelheart.dj/downloads/PixelPusher.zip">http://pixelheart.dj/downloads/PixelPusher.zip</a></p>
-<p>Once it has been downloaded you&#39;ll should unzip it and you&#39;ll find two files: <code>PixelPusher.app</code> and
+<p>Once it&#39;s downloaded, unzip it and you&#39;ll find two files: <code>PixelPusher.app</code> and
 <code>Soundflower-1.6.6b.dmg</code>.</p>
 <h2>Install Soundflower</h2>
 
         
       
         
-        <p>Soundflower is a tool that allows you to redirect audio on your computer through a piece of
-software, like the Pixel Pusher.</p>
+        <blockquote>
+<p>Soundflower is a tool that allows you to redirect audio on your computer through a piece of software such as the Pixel Pusher. The Pixel Pusher then redirects this audio back to your speakers, allowing the Pixel Pusher to react to the music being played on your computer.</p>
+</blockquote>
 <p>Double click the <code>Soundflower-1.6.6b.dmg</code> file to expose the installer and then double click
 <code>Soundflower.pkg</code> to start the installer.</p>
 <p>The installation is fairly straightforward and will require you to restart your computer once it&#39;s
 finished.</p>
+<h2>Set up Soundflower</h2>
+
+        
+      
+        
+        <p>With Soundflower installed, you can now redirect your computer&#39;s music through it.</p>
+<p>Start by opening the System Preferences and selecting the Sound preference page.</p>
+<p><img src="gfx/sound.png" alt="Sound Preferences" title="Sound Preferences"></p>
+<p>Select the &quot;Output&quot; tab if it isn&#39;t already selected.</p>
+<p>Select either &quot;Internal Speakers&quot; or &quot;Headphones&quot;, depending on whether you have headphones plugged
+in, and make sure that you turn the volume all the way up.</p>
+<blockquote>
+<p>You have to turn the volume all the way up so that we don&#39;t lose any information between the sound source and your speakers. You&#39;ll be able to use the Pixel Pusher to control your system&#39;s volume.</p>
+</blockquote>
+<p><img src="gfx/maxvolume.png" alt="Maximum Volume" title="Maximum Volume"></p>
+<p>With the volume turned to max, you can now select &quot;Soundflower (2ch)&quot; as the output.</p>
+<p><img src="gfx/soundflower.png" alt="Sound Flower Output" title="Sound Flower Output"></p>
+<h2>Set up the Pixel Pusher</h2>
+
+        
+      
+        
+        <p>Now that your audio is being routed to the Soundflower you won&#39;t hear any audio come out of your
+speakers until you run a program that redirects the Soundflower to your speakers again. Thankfully
+the Pixel Pusher does exactly this.</p>
+<p>Run the Pixel Pusher app and press the &quot;Prefs&quot; button in the top right.</p>
+<blockquote>
+<p>Before you change the audio source and destination, tell the Pixel Pusher to stop listening by clicking the &quot;Stop Listening&quot; button.</p>
+</blockquote>
+<p>Change the Pixel Pusher&#39;s Audio Source to be &quot;Soundflower (2ch)&quot; and the Audio Destination to be
+&quot;Built-in Output&quot;.</p>
+<p><img src="gfx/prefs.png" alt="Pixel Pusher Audio Prefs" title="Pixel Pusher Audio Prefs"></p>
+<p>You can now tell the Pixel Pusher to start listening to the audio again. If you&#39;re playing music you
+should now hear it coming out of your speakers and see the audio processing graphs displaying
+useful information.</p>
+<p><img src="gfx/audiographs.png" alt="Pixel Pusher Audio Graphs" title="Pixel Pusher Audio Graphs"></p>
+<h2>You&#39;re Done!</h2>
+
+        
+      
+        
+        <p>You now have everything set up to start playing with the Pixel Pusher!</p>
+<h2>Troubleshooting</h2>
+
+        
+      
+        
+        <blockquote>
+<p>I don&#39;t hear any audio coming out of my speakers?</p>
+</blockquote>
+<p>Sometimes you may have to tap the Pixel Pusher&#39;s listening button once or twice to get it to listen
+properly. This generally only happens when the Pixel Pusher starts running.</p>
+<blockquote>
+<p>I hear my music but it sounds really quiet, even though my volume is turned all the way up.</p>
+</blockquote>
+<p>Go to your System Preferences Audio page again and select &quot;Internal Speakers&quot; or &quot;Headphones&quot; and
+make sure that the volume is maxed out. Don&#39;t forget to switch the output source back to
+&quot;Soundflower (2ch)&quot; after you do this!</p>
 
         
       
