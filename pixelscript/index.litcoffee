@@ -1,7 +1,7 @@
 Writing Pixel Scripts
 =====================
 
-Writing Pixel Scripts is an easy way to see our imagination displayed on a giant 12 foot by 8 foot
+Writing Pixel Scripts is an easy way to have your imagination displayed on a giant 12 foot by 8 foot
 LED wall the next time you're near the Pixel Heart ^_^
 
 > In order to test your scripts you'll want to set up the Pixel Pusher by following our [Getting Started guide](gettingstarted/).
