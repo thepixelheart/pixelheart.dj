@@ -87,3 +87,7 @@ loaded.
 
 ![Animations](gfx/animations.png "Animations")
 
+Next
+----
+
+Learn [how to write Pixel Pusher scripts](../).

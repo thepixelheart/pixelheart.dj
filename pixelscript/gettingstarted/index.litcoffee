@@ -97,3 +97,8 @@ properly. This generally only happens when the Pixel Pusher starts running.
 Go to your System Preferences Audio page again and select "Internal Speakers" or "Headphones" and
 make sure that the volume is maxed out. Don't forget to switch the output source back to
 "Soundflower (2ch)" after you do this!
+
+Next
+----
+
+Learn about [the Pixel Pusher User Interface](userinterface.html).
