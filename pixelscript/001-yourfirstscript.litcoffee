@@ -47,8 +47,8 @@ At this point your animation should look like this:
 Degraders
 ---------
 
-Reacting to music is as simple as one of the provided degrader objects. A degrader works like those
-little bars on old amplifier displays that get pushed up and then slowly fall back down.
+Reacting to music is simple thanks to degraders. A degrader works like those little bars on old
+amplifier displays that got pushed up and then slowly fell back down as the music was playing.
 
 In our case we have four degraders: one each for bass, hi hats, vocals, and snares. The value of
 these degraders is a floating point number from 0...1 that represents the amplitude of the

@@ -2,7 +2,7 @@
 
 <html>
 <head>
-  <title>Pixel Scripts</title>
+  <title>PixelScript Commands</title>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
   <link rel="stylesheet" media="all" href="docco.css" />
@@ -50,7 +50,7 @@
               <div class="pilwrap for-h1">
                 <a class="pilcrow" href="#section-1">&#182;</a>
               </div>
-              <h1>Pixel Scripts</h1>
+              <h1>PixelScript Commands</h1>
 
             </div>
             
@@ -63,13 +63,8 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-2">&#182;</a>
               </div>
-              <p>Writing Pixel Scripts is an easy way to have your imagination displayed on a giant 12 foot by 8 foot
-LED wall ^_^</p>
-<blockquote>
-<p>In order to test your scripts you&#39;ll need to set up the Pixel Pusher. Here&#39;s a <a href="gettingstarted/">Getting Started guide</a> to get you going.</p>
-</blockquote>
-<p>Pixel Scripts do require some knowledge of programming, but we&#39;ll walk you through the basics.</p>
-<h2>Finding the Scripts Folder</h2>
+              <p>This is a list of all available PixelScript commands for creating animations.</p>
+<h2>Time</h2>
 
             </div>
             
@@ -82,17 +77,54 @@ LED wall ^_^</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-3">&#182;</a>
               </div>
-              <p>To start, let&#39;s open the User Scripts folder in the Pixel Pusher. To get there open the Prefs page
-and select Folders in the prefs list. Click the &quot;Open in Finder&quot; button next to
-&quot;User Scripts Folder&quot;.</p>
-<p><img src="gfx/userscripts.png" alt="User Scripts" title="User Scripts"></p>
-<p>This is the folder where all of your custom scripts will go. When you add new scripts they&#39;ll
-automatically be loaded by the Pixel Pusher and added to the animation list. Any time you save a
-script the Pixel Pusher will automatically reload it for you, letting you change your animations in
-real time!</p>
-<p>Next learn <a href="001-yourfirstscript.html">how to write your first pixel script</a>...</p>
+              <p>When building real-time animations it&#39;s important to know how much time has passed since the last
+time we ran our animation. This allows us to provide some semblance of visual continuity as we move
+objects at specific velocities.</p>
 
             </div>
+            
+            <div class="content"><div class='highlight'><pre>secondsSinceLastTick
+
+Valid Range: <span class="number">0.</span>..
+Type: floating point</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap for-h2">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <h2>Degraders</h2>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>A degrader works like those little bars on old amplifier displays that get pushed up and then slowly
+fall back down.</p>
+<p>In our case we have four degraders: one each for bass, hi hats, vocals, and snares. The value of
+these degraders is a floating point number from 0...1 that represents the amplitude of the
+respective instrument. The degraders&#39; values fall back to zero at a velocity of one unit per second.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>bassDegrader value
+hihatDegrader value
+vocalDegrader value
+snareDegrader value
+
+Valid Range: <span class="number">0.</span>.<span class="number">.1</span>
+Type: floating point</pre></div></div>
             
         </li>
         
