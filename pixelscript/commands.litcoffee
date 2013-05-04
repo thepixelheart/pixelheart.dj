@@ -16,8 +16,8 @@ Rectangles
 To draw rectangles use the fill- or strokeRect commands. These both receive a rect value
 specifying the outlining of the rectangle.
 
-    renderer fillRect:
-    renderer strokeRect:
+    renderer fillRect:rect.
+    renderer strokeRect:rect.
 
 <div class="code-image">
 ![fillRect](gfx/fillrect.png "fillRect")
@@ -56,15 +56,25 @@ specifying the outlining box of the ellipse.
     NSColor redColor set.
     renderer strokeEllipse:(kWallHeight / 4<>0 extent:kWallHeight<>kWallHeight).
 
+Transformations
+---------------
+
+It's possible to easily scale, translate, and rotate your shapes in 2d space using these translation
+methods.
+
+    renderer scale:x<>y
+    renderer translate:x<>y
+    renderer rotateByRadians:radians
+
 Math
 ----
 
 You may call standard math functions using the `PHMath` object.
 
-    PHMath sin:
-    PHMath cos:
-    PHMath tan:
-    PHMath sqrt:
+    PHMath sin:radians
+    PHMath cos:radians
+    PHMath tan:radians
+    PHMath sqrt:positive number
 
 Pixel Heart Dimensions
 ----------------------
