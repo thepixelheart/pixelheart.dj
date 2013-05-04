@@ -66,6 +66,15 @@ methods.
     renderer translate:x<>y
     renderer rotateByRadians:radians
 
+Renderer State
+--------------
+
+It's possible to stash away the current renderer state for later retrieval by using the push and pop
+renderer methods.
+
+    renderer pushState.
+    renderer popState.
+
 Math
 ----
 
