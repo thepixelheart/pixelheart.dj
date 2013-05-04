@@ -16,8 +16,8 @@ Rectangles
 To draw rectangles use the fill- or strokeRect commands. These both receive a rect value
 specifying the outlining of the rectangle.
 
-    renderer fillRect:rect.
-    renderer strokeRect:rect.
+    renderer fillRect:
+    renderer strokeRect:
 
 <div class="code-image">
 ![fillRect](gfx/fillrect.png "fillRect")
@@ -55,6 +55,16 @@ specifying the outlining box of the ellipse.
 
     NSColor redColor set.
     renderer strokeEllipse:(kWallHeight / 4<>0 extent:kWallHeight<>kWallHeight).
+
+Math
+----
+
+You may call standard math functions using the `PHMath` object.
+
+    PHMath sin:
+    PHMath cos:
+    PHMath tan:
+    PHMath sqrt:
 
 Pixel Heart Dimensions
 ----------------------
