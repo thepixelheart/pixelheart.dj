@@ -2,5 +2,5 @@ docco pixelscript/gettingstarted/*.litcoffee --output content/pixelscript/gettin
 cp -r pixelscript/gettingstarted/gfx content/pixelscript/gettingstarted
 cp pixelscript/gettingstarted/gettingstarted.css content/pixelscript/gettingstarted/
 
-docco pixelscript/*.litcoffee --output content/pixelscript/ --layout parallel
+docco pixelscript/*.litcoffee --output content/pixelscript/ --layout parallel --css pixelscript/pixelscript.css
 cp -r pixelscript/gfx content/pixelscript

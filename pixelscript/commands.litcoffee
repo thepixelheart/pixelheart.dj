@@ -3,6 +3,59 @@ PixelScript Commands
 
 This is a list of all available PixelScript commands for creating animations.
 
+Renderer
+--------
+
+The renderer object is what allows you to draw to the Pixel Heart. You access it using `renderer`.
+
+    renderer <cmd>
+
+Rectangles
+----------
+
+To draw rectangles use the fill- or strokeRect commands. These both receive a rect value
+specifying the outlining of the rectangle.
+
+    renderer fillRect:rect.
+    renderer strokeRect:rect.
+
+<div class="code-image">
+![fillRect](gfx/fillrect.png "fillRect")
+</div>
+
+    NSColor redColor set.
+    renderer fillRect:(kWallHeight / 4<>0 extent:kWallHeight<>kWallHeight).
+
+<div class="code-image">
+![strokeRect](gfx/strokerect.png "strokeRect")
+</div>
+
+    NSColor redColor set.
+    renderer strokeRect:(kWallHeight / 4<>0 extent:kWallHeight<>kWallHeight).
+
+Ellipses
+--------
+
+To draw ellipses use the fill- or strokeEllipse commands. These both receive a rect value
+specifying the outlining box of the ellipse.
+
+    renderer fillEllipse:rect.
+    renderer strokeEllipse:rect.
+
+<div class="code-image">
+![fillEllipse](gfx/fillellipse.png "fillEllipse")
+</div>
+
+    NSColor redColor set.
+    renderer fillEllipse:(kWallHeight / 4<>0 extent:kWallHeight<>kWallHeight).
+
+<div class="code-image">
+![strokeEllipse](gfx/strokeellipse.png "strokeEllipse")
+</div>
+
+    NSColor redColor set.
+    renderer strokeEllipse:(kWallHeight / 4<>0 extent:kWallHeight<>kWallHeight).
+
 Pixel Heart Dimensions
 ----------------------
 
