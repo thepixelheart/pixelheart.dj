@@ -3,6 +3,16 @@ PixelScript Commands
 
 This is a list of all available PixelScript commands for creating animations.
 
+Pixel Heart Dimensions
+----------------------
+
+Though the size of the Pixel Heart is unlikely to change at any point in the near future, it's best
+to use the provided wall dimensions so that your animations will survive any changes in wall
+dimensions.
+
+    kWallWidth (48)
+    kWallHeight (32)
+
 Time
 ----
 
