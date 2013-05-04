@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>Your First Pixel Script</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              
+              <a class="source" href="001-yourfirstscript.html">
+                Your First Pixel Script
+              </a>
+            
+              
+              
+              <a class="source" href="index.html">
+                Pixel Scripts
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap for-h1">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              <h1>Your First Pixel Script</h1>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>This is the Hello World of Pixel Scripting. You&#39;re going to learn how to draw squares that react to
+the music by bouncing up and down the screen.</p>
+<h2>Modifying a Script</h2>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>Let&#39;s start by modifying one of the sample scripts that come with the Pixel Pusher. Open
+<code>square.pixelscript</code> in any source code editor.</p>
+<blockquote>
+<p>While you&#39;re editing a script it&#39;s helpful to see the effects of your changes. Find the square.pixelscript animation in the animation list and select it so that you can see the four squares animating to the music.</p>
+</blockquote>
+<p>We&#39;re going to start from scratch and rebuild this example, so delete everything in this file and
+then hit save. Your animation should now be a black box.</p>
+<p><img src="gfx/emptybox.png" alt="Empty Animation" title="Empty Animation"></p>
+<h2>Drawing a Box</h2>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>Before we can draw a box we need to change the current painting color. By default it&#39;s black, let&#39;s
+change it to red.</p>
+<blockquote>
+<p>There are two painting colors that can be set that will affect all subsequent drawing: fill and stroke. To set one or the other you may use the methods <code>setFill</code> or <code>setStroke</code>, respectively. If you would like to set both then you can call <code>set</code> as we do in this example.</p>
+</blockquote>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>NSColor redColor set.</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>Now that we&#39;ve set a painting color we can draw a rectangle on the screen. We use the <code>renderer</code>
+object to do things like draw rectangles and circles to the screen. In this case we&#39;re filling a
+rectangle that&#39;s 20 pixels wide by 10 pixels tall.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>(renderer fillRect:(<span class="number">0</span>&lt;&gt;<span class="number">0</span> extent:<span class="number">20</span>&lt;&gt;<span class="number">10</span>)).</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <p>Here&#39;s what each of the numbers in the previous line of code mean.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>(renderer fillRect:(x&lt;&gt;y extent:width&lt;&gt;height)).</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <p>At this point your animation should look like this:</p>
+<p><img src="gfx/redbox.png" alt="Red Box" title="Red Box"></p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>NSColor redColor set.
+(renderer fillRect:(<span class="number">0</span>&lt;&gt;<span class="number">0</span> extent:<span class="number">20</span>&lt;&gt;<span class="number">10</span>)).</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-8">
+            <div class="annotation">
+              
+              <div class="pilwrap for-h2">
+                <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <h2>Degraders</h2>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-9">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-9">&#182;</a>
+              </div>
+              <p>Reacting to music is as simple as one of the provided degrader objects. A degrader works like those
+little bars on old amplifier displays that get pushed up and then slowly fall back down.</p>
+<p>In our case we have four degraders: one each for bass, hi hats, vocals, and snares. The value of
+these degraders is a floating point number from 0...1 that represents the amplitude of the
+respective instrument. The degraders&#39; values fall back to zero at a velocity of one unit per second.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>bassDegrader value
+hihatDegrader value
+vocalDegrader value
+snareDegrader value</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-10">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-10">&#182;</a>
+              </div>
+              <p>For example, if the bass hits then the bass degrader value will be 1 and then fall back to 0 over
+the course of one second.</p>
+<h2>Making Your Box Bounce</h2>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-11">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-11">&#182;</a>
+              </div>
+              <p>To make our box bounce it&#39;s a simple matter of using one of the degraders to modify the y position
+of the box.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>(renderer fillRect:(<span class="number">0</span>&lt;&gt;(bassDegrader value * <span class="number">20</span>) extent:<span class="number">20</span>&lt;&gt;<span class="number">10</span>)).</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-12">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-12">&#182;</a>
+              </div>
+              <p><img src="gfx/bouncingbox.gif" alt="Bouncing Box" title="Bouncing Box"></p>
+<h2>Drawing More Boxes</h2>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-13">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-13">&#182;</a>
+              </div>
+              <p>Drawing more boxes is as easy as adding more fillRect calls to your pixelscript.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>NSColor blueColor set.
+(renderer fillRect:(<span class="number">20</span>&lt;&gt;(hihatDegrader value * <span class="number">20</span>) extent:<span class="number">20</span>&lt;&gt;<span class="number">10</span>)).</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-14">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-14">&#182;</a>
+              </div>
+              <p><img src="gfx/2boxes.gif" alt="Bouncing Boxes" title="Bouncing Boxes"></p>
+<h2>Finishing Up</h2>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-15">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-15">&#182;</a>
+              </div>
+              <p>Let&#39;s add the last two boxes for the last two degraders. To fit them all we&#39;ll need to shrink our
+existing boxes a bit. Thankfully there&#39;s a variable that we can use to easily calculate how big
+the boxes should be: <code>kWallWidth</code>.</p>
+<p><img src="gfx/4boxes.gif" alt="Bouncing Boxes" title="Bouncing Boxes"></p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>boxWidth := kWallWidth / <span class="number">4.</span>
+xOffset := <span class="number">0.</span>
+
+NSColor redColor set.
+yOffset := bassDegrader value * <span class="number">20.</span>
+(renderer fillRect:(xOffset&lt;&gt;yOffset extent:boxWidth&lt;&gt;boxWidth)).
+xOffset := xOffset + boxWidth.
+
+NSColor blueColor set.
+yOffset := hihatDegrader value * <span class="number">20.</span>
+(renderer fillRect:(xOffset&lt;&gt;yOffset extent:boxWidth&lt;&gt;boxWidth)).
+xOffset := xOffset + boxWidth.
+
+NSColor greenColor set.
+yOffset := vocalDegrader value * <span class="number">20.</span>
+(renderer fillRect:(xOffset&lt;&gt;yOffset extent:boxWidth&lt;&gt;boxWidth)).
+xOffset := xOffset + boxWidth.
+
+NSColor yellowColor set.
+yOffset := snareDegrader value * <span class="number">20.</span>
+(renderer fillRect:(xOffset&lt;&gt;yOffset extent:boxWidth&lt;&gt;boxWidth)).
+xOffset := xOffset + boxWidth.</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-40641885-1', 'pixelheart.dj');
+    ga('send', 'pageview');
+
+  </script>
+</body>
+</html>
